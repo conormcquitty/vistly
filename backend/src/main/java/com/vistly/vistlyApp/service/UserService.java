@@ -1,6 +1,6 @@
-package com.dailycodebuffer.usersystem.service;
+package com.vistly.vistlyApp.service;
 
-import com.dailycodebuffer.usersystem.model.User;
+import com.vistly.vistlyApp.model.User;
 
 import java.util.List;
 

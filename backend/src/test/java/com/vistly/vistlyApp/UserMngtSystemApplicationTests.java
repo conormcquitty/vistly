@@ -1,4 +1,4 @@
-package com.dailycodebuffer.usersystem;
+package com.vistly.vistlyApp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.dailycodebuffer.usersystem.repository;
+package com.vistly.vistlyApp.repository;
 
-import com.dailycodebuffer.usersystem.entity.UserEntity;
+import com.vistly.vistlyApp.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

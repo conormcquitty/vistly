@@ -1,8 +1,7 @@
-package com.dailycodebuffer.usersystem.controller;
+package com.vistly.vistlyApp.controller;
 
-import com.dailycodebuffer.usersystem.model.User;
-import com.dailycodebuffer.usersystem.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.vistly.vistlyApp.model.User;
+import com.vistly.vistlyApp.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

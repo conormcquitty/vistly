@@ -1,1 +1,2 @@
-# nextjs-fullstack-app
+# Vistly
+Our influencer marketplace to rule the world

@@ -3,7 +3,6 @@ package com.vistly.vistlyApp.service;
 import com.vistly.vistlyApp.entity.UserEntity;
 import com.vistly.vistlyApp.model.User;
 import com.vistly.vistlyApp.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 

@@ -1,16 +1,16 @@
 package com.vistly.vistlyApp.database;
+//
+//import com.vistly.vistlyApp.entity.UserEntity;
+//import com.vistly.vistlyApp.repository.UserRepository;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.boot.CommandLineRunner;
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//
+//import java.util.List;
 
-import com.vistly.vistlyApp.entity.UserEntity;
-import com.vistly.vistlyApp.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
-
-@Configuration
-@RequiredArgsConstructor
+//@Configuration
+//@RequiredArgsConstructor
 public class UserDataSeeder {
 //
 //    private final UserRepository userRepository;

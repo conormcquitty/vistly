@@ -1,10 +1,7 @@
 package com.vistly.vistlyApp.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
 @Entity
 @Table(name = "users")
 public class UserEntity {

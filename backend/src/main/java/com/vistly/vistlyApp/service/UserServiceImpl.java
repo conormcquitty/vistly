@@ -3,6 +3,7 @@ package com.vistly.vistlyApp.service;
 import com.vistly.vistlyApp.entity.UserEntity;
 import com.vistly.vistlyApp.model.User;
 import com.vistly.vistlyApp.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -10,27 +11,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
+
 public class UserServiceImpl implements UserService{
 
-    private UserRepository userRepository;
-
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @Override
-    public User saveUser(User user) {
-        UserEntity userEntity = new UserEntity();
-        BeanUtils.copyProperties(user, userEntity);
-        userRepository.save(userEntity);
-        return user;
-    }
+    private final UserRepository userRepository;
 
     @Override
     public List<User> getAllUsers() {
         List<UserEntity> userEntities = userRepository.findAll();
 
-        List<User> users = userEntities
+        return userEntities
                 .stream()
                 .map((UserEntity userEntity) -> new User(
                         userEntity.getId(),
@@ -39,8 +30,6 @@ public class UserServiceImpl implements UserService{
                         userEntity.getEmailId()
                 ))
                 .collect(Collectors.toList());
-
-        return users;
     }
 
     @Override
@@ -48,24 +37,6 @@ public class UserServiceImpl implements UserService{
         UserEntity userEntity = userRepository.findById(id).get();
         User user = new User();
         BeanUtils.copyProperties(userEntity, user);
-        return user;
-    }
-
-    @Override
-    public boolean deleteUser(Long id) {
-        UserEntity user =  userRepository.findById(id).get();
-        userRepository.delete(user);
-        return true;
-    }
-
-    @Override
-    public User updateUser(Long id, User user) {
-        UserEntity userEntity = userRepository.findById(id).get();
-        userEntity.setEmailId(user.getEmailId());
-        userEntity.setFirstName(user.getFirstName());
-        userEntity.setLastName(user.getLastName());
-
-        userRepository.save(userEntity);
         return user;
     }
 

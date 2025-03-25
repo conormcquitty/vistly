@@ -2,7 +2,6 @@ package com.vistly.vistlyApp.controller;
 
 import com.vistly.vistlyApp.model.User;
 import com.vistly.vistlyApp.service.UserService;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

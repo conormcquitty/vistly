@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
 
         List<User> users = userEntities
                 .stream()
-                .map(userEntity -> new User(
+                .map((UserEntity userEntity) -> new User(
                         userEntity.getId(),
                         userEntity.getFirstName(),
                         userEntity.getLastName(),

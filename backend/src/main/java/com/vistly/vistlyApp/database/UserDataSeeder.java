@@ -34,11 +34,11 @@ public class UserDataSeeder {
     }
 
     private UserEntity createUser(String firstName, String lastName, String emailId) {
-        UserEntity user = new UserEntity();
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setEmailId(emailId);
 
-        return user;
+        return UserEntity.builder()
+                .firstName(firstName)
+                .lastName(lastName)
+                .emailId(emailId)
+                .build();
     }
 }

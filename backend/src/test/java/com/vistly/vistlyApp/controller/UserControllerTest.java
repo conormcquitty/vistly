@@ -1,6 +1,6 @@
 package com.vistly.vistlyApp.controller;
 
-import com.vistly.vistlyApp.model.User;
+import com.vistly.vistlyApp.entity.UserEntity;
 import com.vistly.vistlyApp.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -28,29 +28,31 @@ public class UserControllerTest {
     @MockitoBean
     private UserService userService;
 
-    private User user1;
-    private User user2;
+    private UserEntity user1;
+    private UserEntity user2;
 
     @BeforeEach
     void setUp() {
         // Create two test users
-        user1 = new User();
-        user1.setId(1L);
-        user1.setFirstName("John");
-        user1.setLastName("Doe");
-        user1.setEmailId("john.doe@example.com");
+        user1 = UserEntity.builder()
+                .id(1L)
+                .firstName("John")
+                .lastName("Doe")
+                .emailId("john.doe@example.com")
+                .build();
 
-        user2 = new User();
-        user2.setId(2L);
-        user2.setFirstName("Jane");
-        user2.setLastName("Smith");
-        user2.setEmailId("jane.smith@example.com");
+        user2 = UserEntity.builder()
+                .id(2L)
+                .firstName("Jane")
+                .lastName("Smith")
+                .emailId("jane.smith@example.com")
+                .build();
     }
 
     @Test
     void getAllUsers_ShouldReturnListOfUsers() throws Exception {
         // Arrange
-        List<User> users = List.of(user1, user2);
+        List<UserEntity> users = List.of(user1, user2);
         when(userService.getAllUsers()).thenReturn(users);
 
         // Act & Assert

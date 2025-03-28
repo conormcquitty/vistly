@@ -1,6 +1,6 @@
 package com.vistly.vistlyApp.controller;
 
-import com.vistly.vistlyApp.model.User;
+import com.vistly.vistlyApp.entity.UserEntity;
 import com.vistly.vistlyApp.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,13 +17,13 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
+    public List<UserEntity> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userService.getUserById(id);
+    public ResponseEntity<UserEntity> getUserById(@PathVariable Long id) {
+        UserEntity user = userService.getUserById(id);
         return ResponseEntity.ok(user);
     }
 }

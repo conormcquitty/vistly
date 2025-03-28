@@ -16,5 +16,5 @@ mvn flyway:clean
 
 to migrate:
 ```
-mvn flyway:clean
+mvn flyway:migrate
 ```

@@ -18,5 +18,9 @@ public class UserEntity {
     private String firstName;
     private String lastName;
     private String emailId;
+    private String profileImageUrl;
 
+    private String locality; // city
+    private String administrativeArea; // state/province
+    private String country;
 }

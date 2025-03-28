@@ -3,23 +3,25 @@
 import { useState, useEffect } from 'react';
 
 export default function Home() {
+    const [isLoading, setLoading] = useState(true)
     const [userData, setUserData] = useState(null);
 
-    const fetchUsers = async () => {
-        const response = await fetch('http://localhost:8080/api/v1/users');
-        const data = await response.json();
-        setUserData(data);
-    };
+    useEffect(() => {
+        const fetchUser = async () => {
+            const response = await fetch('http://localhost:8080/api/v1/users');
+            const data = await response.json();
+            setUserData(data);
+            setLoading(false);
+        };
 
-    useEffect(() => fetchUsers(), []);
+        fetchUser();
+    }, []);
+
+    if (isLoading) return <p>Loading...</p>
 
     return (
         <>
-            {userData ? (
-                <pre>{JSON.stringify(userData, null, 2)}</pre>
-            ) : (
-                <div>Loading...</div>
-            )}
+            <pre>{JSON.stringify(userData, null, 2)}</pre>
         </>
     );
 }

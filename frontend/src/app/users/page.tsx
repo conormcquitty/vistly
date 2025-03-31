@@ -1,23 +1,14 @@
-'use client';
+import {UserCard} from "@/src/app/users/UserCard";
 
-import { useState, useEffect } from 'react';
-
-export default function Home() {
-    const [users, setUsers] = useState(null);
-
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const response = await fetch('http://localhost:8080/api/v1/users');
-            const data = await response.json();
-            setUsers(data);
-        };
-
-        fetchUsers();
-    }, []);
+export default async function Home() {
+    const response = await fetch('http://localhost:8080/api/v1/users');
+    const users = await response.json();
 
     return (
         <>
-            <pre>{JSON.stringify(users, null, 2)}</pre>
+            <div className="max-w-5xl flex flex-col gap-5">
+                { users.map(user => <UserCard key={user.id} user={user}/>) }
+            </div>
         </>
     );
 }

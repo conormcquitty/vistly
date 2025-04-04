@@ -14,13 +14,14 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Integer id;
     private String firstName;
     private String lastName;
-    private String emailId;
+    private String email;
     private String profileImageUrl;
 
     private String locality; // city
     private String administrativeArea; // state/province
     private String country;
+    private String password;
 }

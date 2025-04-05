@@ -34,17 +34,17 @@ public class UserControllerTest {
     void setUp() {
         // Create two test users
         user1 = UserEntity.builder()
-                .id(1L)
+                .id(1)
                 .firstName("John")
                 .lastName("Doe")
-                .emailId("john.doe@example.com")
+                .email("john.doe@example.com")
                 .build();
 
         user2 = UserEntity.builder()
-                .id(2L)
+                .id(2)
                 .firstName("Jane")
                 .lastName("Smith")
-                .emailId("jane.smith@example.com")
+                .email("jane.smith@example.com")
                 .build();
     }
 
@@ -61,11 +61,11 @@ public class UserControllerTest {
                 .andExpect(jsonPath("$[0].id").value(1))
                 .andExpect(jsonPath("$[0].firstName").value("John"))
                 .andExpect(jsonPath("$[0].lastName").value("Doe"))
-                .andExpect(jsonPath("$[0].emailId").value("john.doe@example.com"))
+                .andExpect(jsonPath("$[0].email").value("john.doe@example.com"))
                 .andExpect(jsonPath("$[1].id").value(2))
                 .andExpect(jsonPath("$[1].firstName").value("Jane"))
                 .andExpect(jsonPath("$[1].lastName").value("Smith"))
-                .andExpect(jsonPath("$[1].emailId").value("jane.smith@example.com"));
+                .andExpect(jsonPath("$[1].email").value("jane.smith@example.com"));
     }
 
     @Test
@@ -80,6 +80,6 @@ public class UserControllerTest {
                 .andExpect(jsonPath("$.id").value(1))
                 .andExpect(jsonPath("$.firstName").value("John"))
                 .andExpect(jsonPath("$.lastName").value("Doe"))
-                .andExpect(jsonPath("$.emailId").value("john.doe@example.com"));
+                .andExpect(jsonPath("$.email").value("john.doe@example.com"));
     }
 } 

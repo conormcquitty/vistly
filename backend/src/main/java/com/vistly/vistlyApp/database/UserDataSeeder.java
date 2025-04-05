@@ -73,7 +73,8 @@ public class UserDataSeeder {
                                 "Paramus", "NJ", "United States")
                 );
 
-                userRepository.saveAll(users);
+                // not seeding for now
+//                userRepository.saveAll(users);
             }
         };
     }
@@ -81,7 +82,7 @@ public class UserDataSeeder {
     private UserEntity createUser(
             String firstName,
             String lastName,
-            String emailId,
+            String email,
             String profileImageUrl,
             String locality,
             String administrativeArea,
@@ -91,7 +92,7 @@ public class UserDataSeeder {
         return UserEntity.builder()
                 .firstName(firstName)
                 .lastName(lastName)
-                .emailId(emailId)
+                .email(email)
                 .profileImageUrl(profileImageUrl)
                 .locality(locality)
                 .administrativeArea(administrativeArea)

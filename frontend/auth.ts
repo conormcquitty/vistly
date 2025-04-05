@@ -4,14 +4,24 @@ import { authConfig } from './auth.config';
 import { z } from 'zod';
 import type { User } from '@/src/app/lib/definitions';
 import bcrypt from 'bcrypt';
-import postgres from 'postgres';
 
-const sql = postgres(process.env.POSTGRES_URL!);
+import mysql from "mysql2/promise";
+
+
 
 async function getUser(email: string): Promise<User | undefined> {
+    const db = await mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        database: 'vistly_app',
+        password: '', // empty since you mentioned no password
+    });
+
     try {
-        const user = await sql<User[]>`SELECT * FROM users WHERE email=${email}`;
-        return user[0];
+        console.log('hi');
+        const [rows] = await db.execute('SELECT * FROM users WHERE email = ?', [email]);
+        console.log(rows[0]);
+        return rows[0];
     } catch (error) {
         console.error('Failed to fetch user:', error);
         throw new Error('Failed to fetch user.');

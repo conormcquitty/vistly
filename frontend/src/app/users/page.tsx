@@ -1,6 +1,7 @@
 'use client';
 
-import {useEffect, useState} from "react";
+import {useActionState, useEffect, useState} from "react";
+import {signOut} from "@/auth";
 
 export default function Home() {
     const [users, setUsers] = useState([]);
